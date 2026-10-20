@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>就記帳 隱私權政策 · Privacy Policy</title>
+<meta name="description" content="就記帳（本機優先的記帳 app）的隱私權政策。">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<main>
+  <p class="crumb"><a href="../../">souraizuni</a> / 就記帳</p>
+  <h1>就記帳 隱私權政策</h1>
+  <p class="meta">生效日期：2026 年 10 月 20 日 · 開發者：souraizuni · <a href="#en">English version</a></p>
+
+  <p class="lead">就記帳是一款本機優先的記帳 app。它沒有帳號、沒有開發者的伺服器，也不收集使用分析或當機資料。<strong>你的帳目只存在你的手機</strong>；只有在你自己設定之後，才會把資料送到你指定的 AI 端點或你自己的雲端硬碟。</p>
+
+  <h2>我們收集哪些資料</h2>
+  <p>開發者不收集任何資料。App 不含分析、廣告或當機回報套件，也不會把資料傳給開發者。</p>
+
+  <h2>資料存在哪裡</h2>
+  <ul>
+    <li><strong>帳目與設定</strong>：存在手機上的資料庫，只有這個 app 讀得到。</li>
+    <li><strong>收據照片</strong>：存在手機上 app 的資料夾，不會進備份。</li>
+    <li><strong>錯誤紀錄</strong>：app 發生意外錯誤時，會在手機上記下錯誤的類型、簡短訊息與程式位置（資料庫錯誤只記錯誤代碼，不記執行的指令與資料；最多 50 筆），不會自動送出；你可以在「設定 → 關於 → 錯誤紀錄」查看、複製或清除。</li>
+    <li><strong>密碼與金鑰</strong>：AI 端點的 API Key、WebDAV 密碼與備份用的衍生金鑰，存在系統的安全儲存區（Android Keystore／iOS Keychain）。</li>
+    <li><strong>系統備份</strong>：app 的資料不會隨 Google 備份或 iCloud 備份離開手機。換手機請用 app 的加密備份還原。</li>
+  </ul>
+
+  <h2>什麼時候會把資料送出手機</h2>
+  <p>只有下面這些情況，而且都要你先開啟或設定。</p>
+
+  <h3>1. AI 辨識與提問（預設關閉）</h3>
+  <p>你在「設定 → AI 端點」填入自己的 AI 服務（OpenAI 相容 API），並打開「允許把資料送到 AI 端點」之後，下列功能才會送出資料，而且只送到你設定的端點（預設的那組；預設那組連不上時，改用你標記「可當備援」的端點；預設端點是本機時，改送雲端前會先問你）：</p>
+  <ul>
+    <li><strong>收據辨識</strong>：拍照或選圖，且手機讀不到完整的電子發票 QR Code 時，或你在確認頁按「重新辨識」時。送出縮圖後的收據影像（已去除 EXIF）、今天日期、帳本本位幣、分類清單與關鍵字；不送其他交易、帳戶與餘額。</li>
+    <li><strong>句子備援</strong>（要另外打開）：輸入列的句子手機找不到金額，你按「交給 AI」時。送出那一句、今天日期、帳本名稱、分類清單與關鍵字；不送其他交易。</li>
+    <li><strong>報表自由提問</strong>：手機看不懂問題，你按「問 AI」時。送出問題、今天日期、帳本與分類的名稱；不送任何交易與金額，數字一律由手機計算。</li>
+  </ul>
+  <p>AI 的結果只是建議，一律要你確認才會記帳。你和 AI 服務之間的資料處理，適用該服務的隱私權政策；請選擇你信任的服務。App 會在手機上記下每次請求的次數、token 用量與耗時（不含內容），讓你在設定頁看到本月用量。從備份還原到新手機後，要重新同意才會送出。</p>
+  <p>設定端點時，「測試連線」會送出一張內建的範例收據圖；「取得模型清單」只向那個端點要模型名稱（帶上你填的 API Key）。兩者都不含你的帳目資料。</p>
+
+  <h3>2. 備份（你自己設定）</h3>
+  <ul>
+    <li><strong>Google 雲端硬碟</strong>：你連結 Google 帳號後，app 只申請「app 自己建立的檔案」權限（drive.file），看不到你雲端硬碟裡的其他檔案。上傳的只有在手機上加密過的備份檔（AES-256-GCM），放在「就記帳備份」資料夾。你可以隨時在 app 裡中斷連結，或到 Google 帳戶設定移除存取權。</li>
+    <li><strong>WebDAV</strong>：上傳到你填的伺服器，必須使用 HTTPS（區網位址例外，app 會警示）。</li>
+    <li><strong>備份到檔案</strong>：由你選擇存放位置。</li>
+  </ul>
+  <p>備份檔不含收據照片。沒有你的備份密碼或復原金鑰，任何人（包括開發者）都無法打開備份。</p>
+
+  <h3>3. 參考匯率（可關閉）</h3>
+  <p>記外幣交易或查看帳戶總覽時，app 會向 ExchangeRate-API（open.er-api.com）取得參考匯率，只送出幣別代碼，不送你的帳目。可以在設定關閉，關閉後完全不連網。</p>
+
+  <h2>不會做的事</h2>
+  <ul>
+    <li>不收集使用分析、廣告識別碼或當機資料，不顯示廣告。</li>
+    <li>不使用線上字型。</li>
+    <li>電子發票 QR Code 在手機上解析，讀到的發票號碼、日期與金額不送給 AI。</li>
+    <li>不出售、不分享你的資料（開發者手上本來就沒有你的資料）。</li>
+  </ul>
+
+  <h2>權限</h2>
+  <ul>
+    <li><strong>相機</strong>：拍收據、掃描發票 QR Code。</li>
+    <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率。</li>
+    <li><strong>通知</strong>：預算提醒與信用卡繳費提醒（可在系統設定關閉）。</li>
+    <li><strong>生物辨識</strong>：App 鎖（選用）。</li>
+  </ul>
+
+  <h2>刪除資料</h2>
+  <p>「設定 → 備份、還原與匯出 → 清除全部資料」會刪除手機上所有帳目、收據照片、本機快照、錯誤紀錄與安全儲存區裡的金鑰，並撤銷 Google 雲端硬碟的授權；可以選擇同時刪除雲端上的備份。解除安裝 app 也會刪除手機上的資料（雲端備份要另外刪除）。開發者沒有伺服器，因此沒有任何可以替你刪除的資料。</p>
+
+  <h2>兒童</h2>
+  <p>就記帳不是以 13 歲以下兒童為對象設計，也不會刻意收集兒童的資料。</p>
+
+  <h2>政策變更</h2>
+  <p>政策有實質變更時，會更新本頁並修改上方的生效日期；涉及 AI 外送範圍的變更，app 會要求你重新確認同意。</p>
+
+  <h2>聯絡方式</h2>
+  <p>對本政策有任何問題，請來信：<a href="mailto:souraizuni@gmail.com">souraizuni@gmail.com</a></p>
+
+  <hr>
+
+  <section id="en" lang="en">
+  <h1>Jiujizhang Privacy Policy</h1>
+  <p class="meta">Effective date: October 20, 2026 · Developer: souraizuni</p>
+
+  <p class="lead">Jiujizhang (就記帳) is a local-first expense tracking app. It has no accounts, no developer servers, and collects no analytics or crash data. <strong>Your records stay on your phone.</strong> Data is sent only to the AI endpoint or cloud storage that you configure yourself.</p>
+
+  <h2>Data we collect</h2>
+  <p>The developer collects no data. The app contains no analytics, advertising or crash-reporting SDKs and never sends data to the developer.</p>
+
+  <h2>Where your data is stored</h2>
+  <ul>
+    <li><strong>Records and settings</strong>: in a database on your phone, readable only by this app.</li>
+    <li><strong>Receipt photos</strong>: in the app's folder on your phone; they are not included in backups.</li>
+    <li><strong>Error log</strong>: when an unexpected error occurs, the app records the error type, a short message and the code location on your phone (database errors record only the error code, not the statement or data; up to 50 entries). It is never sent automatically; you can view, copy or clear it in Settings → About → Error log.</li>
+    <li><strong>Passwords and keys</strong>: AI endpoint API keys, WebDAV passwords and backup-derived keys are kept in the system secure storage (Android Keystore / iOS Keychain).</li>
+    <li><strong>System backup</strong>: app data is excluded from Google and iCloud device backups. To move to a new phone, restore from the app's encrypted backup.</li>
+  </ul>
+
+  <h2>When data leaves your phone</h2>
+  <p>Only in the cases below, and only after you turn them on or set them up.</p>
+
+  <h3>1. AI recognition and questions (off by default)</h3>
+  <p>After you enter your own AI service (an OpenAI-compatible API) in Settings → AI endpoint and turn on "Allow sending data to the AI endpoint", the following features send data, only to endpoints you configured (your default endpoint, or an endpoint you marked as fallback when the default is unreachable; if the default is a local endpoint, the app asks before falling back to a cloud one):</p>
+  <ul>
+    <li><strong>Receipt recognition</strong>: when you take or pick a photo and the phone cannot read a complete e-invoice QR code, or when you tap "Recognize again". Sent: a downscaled receipt image (EXIF removed), today's date, the ledger's base currency, and your category list and keywords. Not sent: other transactions, accounts or balances.</li>
+    <li><strong>Sentence fallback</strong> (separate opt-in): when the phone cannot find an amount in a sentence and you tap "Ask AI". Sent: that sentence, today's date, the ledger name, and your category list and keywords. Not sent: other transactions.</li>
+    <li><strong>Free-form report questions</strong>: when the phone cannot understand a question and you tap "Ask AI". Sent: the question, today's date, and ledger and category names. Not sent: any transactions or amounts; all figures are calculated on your phone.</li>
+  </ul>
+  <p>AI results are suggestions only and are never recorded without your confirmation. Your AI service's own privacy policy governs its handling of the data; choose a service you trust. The app keeps a local count of requests, token usage and latency (no content) so you can see this month's usage. After restoring a backup on a new phone, you must consent again before anything is sent.</p>
+  <p>When setting up an endpoint, "Test connection" sends a built-in sample receipt image, and "Fetch models" only asks the endpoint for model names (with your API key). Neither includes your records.</p>
+
+  <h3>2. Backups (set up by you)</h3>
+  <ul>
+    <li><strong>Google Drive</strong>: after you link a Google account, the app requests only the "files created by this app" scope (drive.file) and cannot see other files in your Drive. Only backup files encrypted on your phone (AES-256-GCM) are uploaded, into a "就記帳備份" folder. You can unlink in the app or remove access in your Google Account at any time.</li>
+    <li><strong>WebDAV</strong>: uploaded to the server you enter; HTTPS is required (local network addresses are allowed with a warning).</li>
+    <li><strong>Backup to file</strong>: saved wherever you choose.</li>
+  </ul>
+  <p>Backups do not include receipt photos. Without your backup password or recovery key, nobody, including the developer, can open a backup.</p>
+
+  <h3>3. Reference exchange rates (can be turned off)</h3>
+  <p>For foreign-currency transactions and the accounts overview, the app fetches reference rates from ExchangeRate-API (open.er-api.com), sending only currency codes, never your records. You can turn this off in Settings; when off, no request is made.</p>
+
+  <h2>What we never do</h2>
+  <ul>
+    <li>No analytics, advertising IDs, crash reporting or ads.</li>
+    <li>No online fonts.</li>
+    <li>E-invoice QR codes are decoded on your phone; the invoice number, date and amount read from them are never sent to AI.</li>
+    <li>No selling or sharing of your data (the developer never has it).</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Camera</strong>: photographing receipts and scanning invoice QR codes.</li>
+    <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, and the optional reference exchange rates.</li>
+    <li><strong>Notifications</strong>: budget and credit card payment reminders (can be turned off in system settings).</li>
+    <li><strong>Biometrics</strong>: optional app lock.</li>
+  </ul>
+
+  <h2>Deleting your data</h2>
+  <p>Settings → Backup, restore and export → Clear all data deletes all records, receipt photos, local snapshots, the error log and keys in secure storage on your phone, and revokes Google Drive access; you can also choose to delete your cloud backups. Uninstalling the app also deletes the data on your phone (cloud backups must be deleted separately). The developer has no servers and therefore holds no data to delete.</p>
+
+  <h2>Children</h2>
+  <p>Jiujizhang is not directed at children under 13 and does not knowingly collect children's data.</p>
+
+  <h2>Changes</h2>
+  <p>Material changes will be posted on this page with an updated effective date. Changes to what may be sent to AI endpoints will require you to consent again in the app.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:souraizuni@gmail.com">souraizuni@gmail.com</a></p>
+  </section>
+</main>
+</body>
+</html>
