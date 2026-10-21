@@ -34,9 +34,12 @@
   <p>你在「設定 → AI 端點」填入自己的 AI 服務（OpenAI 相容 API），並打開「允許把資料送到 AI 端點」之後，下列功能才會送出資料，而且只送到你設定的端點（預設的那組；預設那組連不上時，改用你標記「可當備援」的端點；預設端點是本機時，改送雲端前會先問你）：</p>
   <ul>
     <li><strong>收據辨識</strong>：拍照或選圖，且手機讀不到完整的電子發票 QR Code 時，或你在確認頁按「重新辨識」時。送出縮圖後的收據影像（已去除 EXIF）、今天日期、帳本本位幣、分類清單與關鍵字；不送其他交易、帳戶與餘額。</li>
-    <li><strong>句子備援</strong>（要另外打開）：輸入列的句子手機找不到金額，你按「交給 AI」時。送出那一句、今天日期、帳本名稱、分類清單與關鍵字；不送其他交易。</li>
-    <li><strong>報表自由提問</strong>：手機看不懂問題，你按「問 AI」時。送出問題、今天日期、帳本與分類的名稱和 ID；不送任何交易與金額，數字一律由手機計算。</li>
+    <li><strong>句子記帳</strong>（要另外打開）：輸入列的句子手機找不到金額，你按「交給 AI」時；或打開「全部交給 AI」後，每一句按「記下」時。送出那一句、今天日期、帳本名稱、分類清單與關鍵字；不送其他交易。</li>
+    <li><strong>報表自由提問</strong>：手機看不懂問題，你按「問 AI」時；或打開「全部交給 AI」後，每一題都先送。送出問題、今天日期、帳本與分類的名稱和 ID；不送任何交易與金額，數字一律由手機計算。</li>
+    <li><strong>電子發票品項分類</strong>（要打開「全部交給 AI」）：掃 QR Code 入帳的發票（掃描時，或從辨識佇列打開時）。送出品項的名稱、數量與金額，以及分類清單與關鍵字；不送發票號碼、統編、日期、店名與其他交易。</li>
+    <li><strong>發票存摺匯入</strong>（要打開「全部交給 AI」）：匯入發票存摺的明細檔時，只問商家規則與關鍵字都分不出來的發票；可能重複的發票在預覽時就問（預設併進你手記的帳的不問，併不到的照問；你選分開記才用到）。每份檔案最多 20 張（換帳本也算），一張一張送，每張算進每月辨識次數。送出品項的名稱、數量與金額，以及分類清單與關鍵字；不送發票號碼、統編、日期、店名與其他交易。</li>
   </ul>
+  <p>「全部交給 AI」預設關閉，在「設定 → AI 端點」打開前會先說明送出的內容；打開後，上面標明的用途每次都會先送 AI，AI 失敗或還沒同意時，照常用手機上的本機方式記帳與回答，並告訴你原因。</p>
   <p>AI 的結果只是建議，一律要你確認才會記帳。你和 AI 服務之間的資料處理，適用該服務的隱私權政策；請選擇你信任的服務。App 會在手機上記下每次請求的次數、token 用量與耗時（不含內容），讓你在設定頁看到本月用量。從備份還原到新手機後，要重新同意才會送出。</p>
   <p>設定端點時，「測試連線」會送出一張內建的範例收據圖；「取得模型清單」只向那個端點要模型名稱（帶上你填的 API Key）。兩者都不含你的帳目資料。</p>
 
@@ -63,17 +66,27 @@
   </ul>
   <p>掃到的照片之後照一般拍照的照片處理：要辨識時才會依上面「AI 辨識與提問」的規定送出。</p>
 
+  <h2>語音記帳</h2>
+  <ul>
+    <li>在輸入列按麥克風鈕後，app 用手機的麥克風收音，交給手機上的離線語音辨識轉成文字。<strong>語音只在手機上辨識，不送到開發者、Apple、Google 或任何 AI 端點，也不存成檔案</strong>（Android 用系統的離線語音辨識器並強制離線；iOS 用系統的語音辨識並要求只在裝置上辨識）。</li>
+    <li>辨識出的文字只放進輸入列，和你打的字一樣可以改；要按「記下」才會入帳。</li>
+    <li>離線語音需要手機先下載中文（台灣）的語音辨識。這是系統的功能，就記帳不會自己下載；還沒下載時，app 會請你到系統設定下載。</li>
+    <li>手機不支援離線辨識時，不會顯示麥克風鈕。</li>
+  </ul>
+
   <h2>不會做的事</h2>
   <ul>
-    <li>不收集使用分析、廣告識別碼或當機資料（拍收據的文件掃描除外，見上一節），不顯示廣告。</li>
+    <li>不收集使用分析、廣告識別碼或當機資料（拍收據的文件掃描除外，見「拍收據的文件掃描」），不顯示廣告。</li>
     <li>不使用線上字型。</li>
-    <li>電子發票 QR Code 在手機上解析，不送給 AI。</li>
+    <li>語音記帳不把聲音或辨識出的文字送出手機（見上一節）。</li>
+    <li>電子發票 QR Code 在手機上解析，不送給 AI；只有打開「全部交給 AI」時，才把品項的名稱、數量與金額送去分類（掃 QR 入帳，或匯入發票存摺時只問手機上分不出來的發票，見上方「AI 辨識與提問」）。</li>
     <li>不出售、不分享你的資料（開發者手上本來就沒有你的資料）。</li>
   </ul>
 
   <h2>權限</h2>
   <ul>
     <li><strong>相機</strong>：拍收據（先用文件掃描，掃描不能用時改用一般相機）、掃描發票 QR Code。</li>
+    <li><strong>麥克風與語音辨識</strong>：語音記帳（只在手機上辨識，不存檔、不上傳；不用語音就不會錄音）。</li>
     <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率（只送幣別代碼）。</li>
     <li><strong>通知</strong>：預算達 80% 的提醒；信用卡繳費提醒（截止日前幾天，內容含卡名與本期應繳金額，手機重開機後會自動重排）。都是手機上的本機通知，可在系統設定關閉。</li>
     <li><strong>生物辨識</strong>：App 鎖（選用）。</li>
@@ -125,9 +138,12 @@
   <p>After you enter your own AI service (an OpenAI-compatible API) in Settings → AI endpoint and turn on "Allow sending data to the AI endpoint", the following features send data, only to endpoints you configured (your default endpoint, or an endpoint you marked as fallback when the default is unreachable; if the default is a local endpoint, the app asks before falling back to a cloud one):</p>
   <ul>
     <li><strong>Receipt recognition</strong>: when you take or pick a photo and the phone cannot read a complete e-invoice QR code, or when you tap "Recognize again". Sent: a downscaled receipt image (EXIF removed), today's date, the ledger's base currency, and your category list and keywords. Not sent: other transactions, accounts or balances.</li>
-    <li><strong>Sentence fallback</strong> (separate opt-in): when the phone cannot find an amount in a sentence and you tap "Ask AI". Sent: that sentence, today's date, the ledger name, and your category list and keywords. Not sent: other transactions.</li>
-    <li><strong>Free-form report questions</strong>: when the phone cannot understand a question and you tap "Ask AI". Sent: the question, today's date, and ledger and category names and IDs. Not sent: any transactions or amounts; all figures are calculated on your phone.</li>
+    <li><strong>Sentence entry</strong> (separate opt-in): when the phone cannot find an amount in a sentence and you tap "Ask AI", or, with "Send everything to AI" on, every time you tap "Record". Sent: that sentence, today's date, the ledger name, and your category list and keywords. Not sent: other transactions.</li>
+    <li><strong>Free-form report questions</strong>: when the phone cannot understand a question and you tap "Ask AI", or, with "Send everything to AI" on, every question. Sent: the question, today's date, and ledger and category names and IDs. Not sent: any transactions or amounts; all figures are calculated on your phone.</li>
+    <li><strong>E-invoice item classification</strong> (requires "Send everything to AI"): invoices recorded by scanning their QR code (when scanned, or when opened from the recognition queue). Sent: item names, quantities and amounts, and your category list and keywords. Not sent: invoice numbers, tax IDs, dates, store names or other transactions.</li>
+    <li><strong>Invoice carrier import</strong> (requires "Send everything to AI"): when you import an invoice carrier detail file, only invoices that neither merchant rules nor keywords can classify are sent; possible duplicates are asked about in the preview (by default they are merged into the entry you recorded by hand and not sent; those that cannot be merged are sent, and they are only used if you choose to keep them separate). At most 20 invoices per file (switching ledgers included), sent one at a time, each counting toward the monthly recognition limit. Sent: item names, quantities and amounts, and your category list and keywords. Not sent: invoice numbers, tax IDs, dates, store names or other transactions.</li>
   </ul>
+  <p>"Send everything to AI" is off by default, and the app explains what will be sent before you turn it on in Settings → AI endpoint. When it is on, the uses marked above are always sent to AI first; if AI fails or you have not consented, the app records and answers on your phone as usual and tells you why.</p>
   <p>AI results are suggestions only and are never recorded without your confirmation. Your AI service's own privacy policy governs its handling of the data; choose a service you trust. The app keeps a local count of requests, token usage and latency (no content) so you can see this month's usage. After restoring a backup on a new phone, you must consent again before anything is sent.</p>
   <p>When setting up an endpoint, "Test connection" sends a built-in sample receipt image, and "Fetch models" only asks the endpoint for model names (with your API key). Neither includes your records.</p>
 
@@ -154,17 +170,27 @@
   </ul>
   <p>Scanned photos are then handled like any other photo: they are sent only for recognition, under the "AI recognition and questions" rules above.</p>
 
+  <h2>Voice input</h2>
+  <ul>
+    <li>When you tap the microphone button in the input bar, the app records through your phone's microphone and converts speech to text with the phone's offline speech recognition. <strong>Speech is recognized only on your phone; it is never sent to the developer, Apple, Google or any AI endpoint, and it is never saved to a file</strong> (on Android the system's offline recognizer is used with offline mode enforced; on iOS the system speech recognizer is required to run on the device).</li>
+    <li>The recognized text only goes into the input bar, where you can edit it like typed text; nothing is recorded until you tap "Record".</li>
+    <li>Offline voice input requires the phone's Chinese (Taiwan) speech recognition to be downloaded first. This is a system feature that Jiujizhang never downloads itself; if it is missing, the app asks you to download it in system settings.</li>
+    <li>If the phone does not support offline recognition, the microphone button is not shown.</li>
+  </ul>
+
   <h2>What we never do</h2>
   <ul>
-    <li>No analytics, advertising IDs or crash reporting (except the document scanner described above), and no ads.</li>
+    <li>No analytics, advertising IDs or crash reporting (except the document scanner described in "Receipt document scanning"), and no ads.</li>
     <li>No online fonts.</li>
-    <li>E-invoice QR codes are decoded on your phone and never sent to AI.</li>
+    <li>Voice input never sends audio or recognized text off your phone (see above).</li>
+    <li>E-invoice QR codes are decoded on your phone and never sent to AI; only with "Send everything to AI" on are item names, quantities and amounts sent for classification (for QR-scanned invoices, and for carrier imports only the invoices the phone cannot classify; see "AI recognition and questions").</li>
     <li>No selling or sharing of your data (the developer never has it).</li>
   </ul>
 
   <h2>Permissions</h2>
   <ul>
     <li><strong>Camera</strong>: photographing receipts (document scanner first, regular camera if the scanner is unavailable) and scanning invoice QR codes.</li>
+    <li><strong>Microphone and speech recognition</strong>: voice input (recognized only on your phone, never saved or uploaded; nothing is recorded unless you use voice input).</li>
     <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, and the optional reference exchange rates (currency codes only).</li>
     <li><strong>Notifications</strong>: budget alerts at 80%, and credit card payment reminders (a few days before the due date, including the card name and amount due; rescheduled automatically after a reboot). All are local notifications and can be turned off in system settings.</li>
     <li><strong>Biometrics</strong>: optional app lock.</li>
