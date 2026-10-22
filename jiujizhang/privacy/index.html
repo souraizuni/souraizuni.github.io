@@ -11,7 +11,7 @@
 <main>
   <p class="crumb"><a href="../../">souraizuni</a> / 就記帳</p>
   <h1>就記帳 隱私權政策</h1>
-  <p class="meta">生效日期：2026 年 10 月 21 日 · 開發者：souraizuni · <a href="#en">English version</a></p>
+  <p class="meta">生效日期：2026 年 10 月 22 日 · 開發者：souraizuni · <a href="#en">English version</a></p>
 
   <p class="lead">就記帳是一款本機優先的記帳 app。它沒有帳號、沒有開發者的伺服器，也不收集使用分析或當機資料（Android 拍收據時的文件掃描例外，見下方「拍收據的文件掃描」）。<strong>你的帳目只存在你的手機</strong>；只有在你自己設定之後，才會把資料送到你指定的 AI 端點或你自己的雲端硬碟。</p>
 
@@ -34,6 +34,7 @@
   <p>你在「設定 → AI 端點」填入自己的 AI 服務（OpenAI 相容 API），並打開「允許把資料送到 AI 端點」之後，下列功能才會送出資料，而且只送到你設定的端點（預設的那組；預設那組連不上時，改用你標記「可當備援」的端點；預設端點是本機時，改送雲端前會先問你）：</p>
   <ul>
     <li><strong>收據辨識</strong>：拍照或選圖，且手機讀不到完整的電子發票 QR Code 時，或你在確認頁按「重新辨識」時。送出縮圖後的收據影像（已去除 EXIF）、今天日期、帳本本位幣、分類清單與關鍵字；不送其他交易、帳戶與餘額。</li>
+    <li><strong>電子發票補品項</strong>：讀到電子發票 QR Code，但 QR 裡的品項不完整時（例如品項太多放不下）。只送縮圖後的收據影像（已去除 EXIF），請 AI 只回品項；不送 QR Code 讀到的發票號碼、日期、金額與統編（這些以 QR 為準，不交給 AI），也不送分類清單與其他交易。</li>
     <li><strong>句子記帳</strong>（要另外打開）：輸入列的句子手機找不到金額，你按「交給 AI」時；或打開「全部交給 AI」後，每一句按「記下」時。送出那一句、今天日期、帳本名稱、分類清單與關鍵字；不送其他交易。</li>
     <li><strong>報表自由提問</strong>：手機看不懂問題，你按「問 AI」時；或打開「全部交給 AI」後，每一題都先送。送出問題、今天日期、帳本與分類的名稱和 ID；不送任何交易與金額，數字一律由手機計算。</li>
     <li><strong>電子發票品項分類</strong>（要打開「全部交給 AI」）：掃 QR Code 入帳的發票（掃描時，或從辨識佇列打開時）。送出品項的名稱、數量與金額，以及分類清單與關鍵字；不送發票號碼、統編、日期、店名與其他交易。</li>
@@ -79,7 +80,7 @@
     <li>不收集使用分析、廣告識別碼或當機資料（拍收據的文件掃描除外，見「拍收據的文件掃描」），不顯示廣告。</li>
     <li>不使用線上字型。</li>
     <li>語音記帳不把聲音或辨識出的文字送出手機（見上一節）。</li>
-    <li>電子發票 QR Code 在手機上解析，不送給 AI；只有打開「全部交給 AI」時，才把品項的名稱、數量與金額送去分類（掃 QR 入帳，或匯入發票存摺時只問手機上分不出來的發票，見上方「AI 辨識與提問」）。</li>
+    <li>電子發票 QR Code 在手機上解析，QR 讀到的欄位不送給 AI；QR 裡的品項不完整時，只送照片請 AI 補品項（見上方「AI 辨識與提問」）。只有打開「全部交給 AI」時，才把品項的名稱、數量與金額送去分類（掃 QR 入帳，或匯入發票存摺時只問手機上分不出來的發票，見上方「AI 辨識與提問」）。</li>
     <li>不出售、不分享你的資料（開發者手上本來就沒有你的資料）。</li>
   </ul>
 
@@ -87,7 +88,7 @@
   <ul>
     <li><strong>相機</strong>：拍收據（先用文件掃描，掃描不能用時改用一般相機）、掃描發票 QR Code。</li>
     <li><strong>麥克風與語音辨識</strong>：語音記帳（只在手機上辨識，不存檔、不上傳；不用語音就不會錄音）。</li>
-    <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率（只送幣別代碼）。</li>
+    <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率（只送幣別代碼）。Android 拍收據的文件掃描由 Google Play 服務處理，可能把使用統計傳給 Google（見上方「拍收據的文件掃描」）。</li>
     <li><strong>通知</strong>：預算達 80% 的提醒；信用卡繳費提醒（截止日前幾天，內容含卡名與本期應繳金額，手機重開機後會自動重排）。都是手機上的本機通知，可在系統設定關閉。</li>
     <li><strong>生物辨識</strong>：App 鎖（選用）。</li>
   </ul>
@@ -115,7 +116,7 @@
 
   <section id="en" lang="en">
   <h1>Jiujizhang Privacy Policy</h1>
-  <p class="meta">Effective date: October 21, 2026 · Developer: souraizuni</p>
+  <p class="meta">Effective date: October 22, 2026 · Developer: souraizuni</p>
 
   <p class="lead">Jiujizhang (就記帳) is a local-first expense tracking app. It has no accounts, no developer servers, and collects no analytics or crash data (except for the document scanner used when photographing receipts on Android; see "Receipt document scanning" below). <strong>Your records stay on your phone.</strong> Data is sent only to the AI endpoint or cloud storage that you configure yourself.</p>
 
@@ -138,6 +139,7 @@
   <p>After you enter your own AI service (an OpenAI-compatible API) in Settings → AI endpoint and turn on "Allow sending data to the AI endpoint", the following features send data, only to endpoints you configured (your default endpoint, or an endpoint you marked as fallback when the default is unreachable; if the default is a local endpoint, the app asks before falling back to a cloud one):</p>
   <ul>
     <li><strong>Receipt recognition</strong>: when you take or pick a photo and the phone cannot read a complete e-invoice QR code, or when you tap "Recognize again". Sent: a downscaled receipt image (EXIF removed), today's date, the ledger's base currency, and your category list and keywords. Not sent: other transactions, accounts or balances.</li>
+    <li><strong>E-invoice items</strong>: when the phone reads an e-invoice QR code but the items in it are incomplete (for example, too many items to fit). Sent: only the downscaled receipt image (EXIF removed), asking the AI for the items alone. Not sent: the invoice number, date, amount and tax ID read from the QR code (the QR code stays the source for these and they never go to AI), your category list, or other transactions.</li>
     <li><strong>Sentence entry</strong> (separate opt-in): when the phone cannot find an amount in a sentence and you tap "Ask AI", or, with "Send everything to AI" on, every time you tap "Record". Sent: that sentence, today's date, the ledger name, and your category list and keywords. Not sent: other transactions.</li>
     <li><strong>Free-form report questions</strong>: when the phone cannot understand a question and you tap "Ask AI", or, with "Send everything to AI" on, every question. Sent: the question, today's date, and ledger and category names and IDs. Not sent: any transactions or amounts; all figures are calculated on your phone.</li>
     <li><strong>E-invoice item classification</strong> (requires "Send everything to AI"): invoices recorded by scanning their QR code (when scanned, or when opened from the recognition queue). Sent: item names, quantities and amounts, and your category list and keywords. Not sent: invoice numbers, tax IDs, dates, store names or other transactions.</li>
@@ -183,7 +185,7 @@
     <li>No analytics, advertising IDs or crash reporting (except the document scanner described in "Receipt document scanning"), and no ads.</li>
     <li>No online fonts.</li>
     <li>Voice input never sends audio or recognized text off your phone (see above).</li>
-    <li>E-invoice QR codes are decoded on your phone and never sent to AI; only with "Send everything to AI" on are item names, quantities and amounts sent for classification (for QR-scanned invoices, and for carrier imports only the invoices the phone cannot classify; see "AI recognition and questions").</li>
+    <li>E-invoice QR codes are decoded on your phone, and the fields read from them are never sent to AI; when the items in the QR code are incomplete, only the photo is sent so the AI can fill in the items (see "AI recognition and questions"). Only with "Send everything to AI" on are item names, quantities and amounts sent for classification (for QR-scanned invoices, and for carrier imports only the invoices the phone cannot classify; see "AI recognition and questions").</li>
     <li>No selling or sharing of your data (the developer never has it).</li>
   </ul>
 
@@ -191,7 +193,7 @@
   <ul>
     <li><strong>Camera</strong>: photographing receipts (document scanner first, regular camera if the scanner is unavailable) and scanning invoice QR codes.</li>
     <li><strong>Microphone and speech recognition</strong>: voice input (recognized only on your phone, never saved or uploaded; nothing is recorded unless you use voice input).</li>
-    <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, and the optional reference exchange rates (currency codes only).</li>
+    <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, and the optional reference exchange rates (currency codes only). On Android, the receipt document scanner is handled by Google Play services, which may send usage statistics to Google (see "Receipt document scanning" above).</li>
     <li><strong>Notifications</strong>: budget alerts at 80%, and credit card payment reminders (a few days before the due date, including the card name and amount due; rescheduled automatically after a reboot). All are local notifications and can be turned off in system settings.</li>
     <li><strong>Biometrics</strong>: optional app lock.</li>
   </ul>
