@@ -11,7 +11,7 @@
 <main>
   <p class="crumb"><a href="../../">souraizuni</a> / 就記帳</p>
   <h1>就記帳 隱私權政策</h1>
-  <p class="meta">生效日期：2026 年 10 月 22 日 · 開發者：souraizuni · <a href="#en">English version</a></p>
+  <p class="meta">生效日期：2026 年 10 月 24 日 · 開發者：souraizuni · <a href="#en">English version</a></p>
 
   <p class="lead">就記帳是一款本機優先的記帳 app。它沒有帳號、沒有開發者的伺服器，也不收集使用分析或當機資料（Android 拍收據時的文件掃描例外，見下方「拍收據的文件掃描」）。<strong>你的帳目只存在你的手機</strong>；只有在你自己設定之後，才會把資料送到你指定的 AI 端點或你自己的雲端硬碟。</p>
 
@@ -57,6 +57,9 @@
   <h3>3. 參考匯率（可關閉）</h3>
   <p>記外幣交易或查看帳戶總覽時，app 會向 ExchangeRate-API（open.er-api.com）取得參考匯率，只送出幣別代碼，不送你的帳目。可以在設定關閉，關閉後完全不連網。</p>
 
+  <h3>4. 發票對獎（可關閉）</h3>
+  <p>開獎後，app 會從財政部稅務入口網（invoice.etax.nat.gov.tw）下載公開的統一發票中獎號碼，只下載這份公開資料，不送出你的帳目或發票號碼；比對在手機上進行。可以在設定關閉，關閉後不連網，也可以自己輸入號碼。</p>
+
   <h2>拍收據的文件掃描</h2>
   <p>拍收據時，app 先開文件掃描，自動找收據的邊緣、裁切並拉正，只取一頁，存成 JPEG 照片。</p>
   <ul>
@@ -88,8 +91,8 @@
   <ul>
     <li><strong>相機</strong>：拍收據（先用文件掃描，掃描不能用時改用一般相機）、掃描發票 QR Code。</li>
     <li><strong>麥克風與語音辨識</strong>：語音記帳（只在手機上辨識，不存檔、不上傳；不用語音就不會錄音）。</li>
-    <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率（只送幣別代碼）。Android 拍收據的文件掃描由 Google Play 服務處理，可能把使用統計傳給 Google（見上方「拍收據的文件掃描」）。</li>
-    <li><strong>通知</strong>：預算達 80% 的提醒；信用卡繳費提醒（截止日前幾天，內容含卡名與本期應繳金額，手機重開機後會自動重排）。都是手機上的本機通知，可在系統設定關閉。</li>
+    <li><strong>網路</strong>：只用於你設定的 AI 端點與雲端備份，以及可關閉的參考匯率（只送幣別代碼）與發票對獎的中獎號碼下載（只下載公開資料）。Android 拍收據的文件掃描由 Google Play 服務處理，可能把使用統計傳給 Google（見上方「拍收據的文件掃描」）。</li>
+    <li><strong>通知</strong>：預算達 80% 的提醒；發票中獎的提醒（只寫張數、金額與領獎期限，不寫發票號碼）；週期提醒（設成「只提醒」的週期交易，到期當天早上 9 點，內容含名稱與金額）；信用卡繳費提醒（截止日前幾天，內容含卡名與本期應繳金額，手機重開機後會自動重排）。都是手機上的本機通知，可在系統設定關閉。</li>
     <li><strong>生物辨識</strong>：App 鎖（選用）。</li>
   </ul>
 
@@ -116,7 +119,7 @@
 
   <section id="en" lang="en">
   <h1>Jiujizhang Privacy Policy</h1>
-  <p class="meta">Effective date: October 22, 2026 · Developer: souraizuni</p>
+  <p class="meta">Effective date: October 24, 2026 · Developer: souraizuni</p>
 
   <p class="lead">Jiujizhang (就記帳) is a local-first expense tracking app. It has no accounts, no developer servers, and collects no analytics or crash data (except for the document scanner used when photographing receipts on Android; see "Receipt document scanning" below). <strong>Your records stay on your phone.</strong> Data is sent only to the AI endpoint or cloud storage that you configure yourself.</p>
 
@@ -162,6 +165,9 @@
   <h3>3. Reference exchange rates (can be turned off)</h3>
   <p>For foreign-currency transactions and the accounts overview, the app fetches reference rates from ExchangeRate-API (open.er-api.com), sending only currency codes, never your records. You can turn this off in Settings; when off, no request is made.</p>
 
+  <h3>4. Invoice lottery (can be turned off)</h3>
+  <p>After each draw, the app downloads the public Taiwan uniform-invoice winning numbers from the Ministry of Finance e-Tax portal (invoice.etax.nat.gov.tw). It only downloads this public data and never sends your records or invoice numbers; matching happens on your phone. You can turn this off in Settings (no request is made when off) and enter the numbers yourself.</p>
+
   <h2>Receipt document scanning</h2>
   <p>When you photograph a receipt, the app first opens a document scanner that finds the receipt's edges, crops and straightens it, and saves a single page as a JPEG photo.</p>
   <ul>
@@ -193,8 +199,8 @@
   <ul>
     <li><strong>Camera</strong>: photographing receipts (document scanner first, regular camera if the scanner is unavailable) and scanning invoice QR codes.</li>
     <li><strong>Microphone and speech recognition</strong>: voice input (recognized only on your phone, never saved or uploaded; nothing is recorded unless you use voice input).</li>
-    <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, and the optional reference exchange rates (currency codes only). On Android, the receipt document scanner is handled by Google Play services, which may send usage statistics to Google (see "Receipt document scanning" above).</li>
-    <li><strong>Notifications</strong>: budget alerts at 80%, and credit card payment reminders (a few days before the due date, including the card name and amount due; rescheduled automatically after a reboot). All are local notifications and can be turned off in system settings.</li>
+    <li><strong>Internet</strong>: only for your configured AI endpoint and cloud backups, the optional reference exchange rates (currency codes only), and the optional invoice lottery download (public data only). On Android, the receipt document scanner is handled by Google Play services, which may send usage statistics to Google (see "Receipt document scanning" above).</li>
+    <li><strong>Notifications</strong>: budget alerts at 80%; invoice lottery wins (only the count, amount and claim deadline, never invoice numbers); recurring reminders (for recurring entries set to remind only, at 9:00 on the due date, including the name and amount); and credit card payment reminders (a few days before the due date, including the card name and amount due; rescheduled automatically after a reboot). All are local notifications and can be turned off in system settings.</li>
     <li><strong>Biometrics</strong>: optional app lock.</li>
   </ul>
 
